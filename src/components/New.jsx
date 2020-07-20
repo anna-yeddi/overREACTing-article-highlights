@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 function New(props) {
   return (
@@ -10,6 +10,10 @@ function New(props) {
   )
 }
 
-// New.propTypes = {}
+New.propTypes = {
+  props: PropTypes.objectOf({
+    children: PropTypes.node.isRequired,
+  }),
+}
 
 export default New

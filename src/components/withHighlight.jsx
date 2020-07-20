@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import New from './New'
 import Popular from './Popular'
 
@@ -18,8 +18,15 @@ function withHighlight(WrappedComponent) {
   }
 }
 
-// withHighlight.propTypes = {
-
-// }
+withHighlight.propTypes = {
+  WrappedComponent: PropTypes.func.isRequired,
+  props: PropTypes.objectOf({
+    list: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      views: PropTypes.number.isRequired,
+    }).isRequired,
+  }),
+}
 
 export default withHighlight

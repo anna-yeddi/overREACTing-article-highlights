@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 function Article(props) {
   return (
@@ -12,6 +12,12 @@ function Article(props) {
   )
 }
 
-// Article.propTypes = {}
+Article.propTypes = {
+  props: PropTypes.objectOf({
+    type: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    views: PropTypes.number.isRequired,
+  }),
+}
 
 export default Article

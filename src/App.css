@@ -92,7 +92,7 @@ body {
 
 .wrap-item {
   position: relative;
-  height: 16.25rem;
+  /* height: 16.25rem; */
 }
 
 .wrap-item .label {
@@ -111,7 +111,7 @@ body {
 }
 
 .wrap-item .item iframe,
-.wrap-item .item h3 {
+.wrap-item .item h2 {
   width: 25rem;
   height: 13.125rem;
 }
@@ -121,7 +121,8 @@ body {
 }
 
 .wrap-item-new .label {
-  background-color: rgba(15, 145, 37, 0.72);
+  /* background-color: rgba(15, 145, 37, 0.72); */
+  background-color: rgba(15, 145, 37, 0.92);
   border-color: rgba(15, 145, 37, 1);
 }
 
@@ -130,6 +131,7 @@ body {
 }
 
 .wrap-item-popular .label {
-  background-color: rgba(176, 0, 24, 0.73);
+  /* background-color: rgba(176, 0, 24, 0.73); */
+  background-color: rgba(176, 0, 24, 0.93);
   border-color: rgba(176, 0, 24, 0, 1);
 }

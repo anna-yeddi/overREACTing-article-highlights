@@ -1,25 +1,27 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-import Video from './Video'
-import Article from './Article'
+import PropTypes from 'prop-types'
 import withHighlight from './withHighlight'
+import withType from './withType'
 
 function List(props) {
-  const HighlightedComponentVideo = withHighlight(Video)
-  const HighlightedComponentArticle = withHighlight(Article)
+  // Needed component will be selected by withType HOC
+  // depending on item.type and then
+  // highlighted, if needed, by withHighlight HOC
+  const HighlightedComponent = withHighlight(withType())
 
   return props.list.map((item, i) => {
-    switch (item.type) {
-      case 'video':
-        return <HighlightedComponentVideo {...item} key={i} />
-
-      case 'article':
-        return <HighlightedComponentArticle {...item} key={i} />
-    }
-    // return <HighlightedComponent {...item} key={i} />
+    return <HighlightedComponent {...item} key={i} />
   })
 }
 
-// List.propTypes = {}
+List.propTypes = {
+  props: PropTypes.objectOf({
+    list: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      views: PropTypes.number.isRequired,
+    }).isRequired,
+  }),
+}
 
 export default List

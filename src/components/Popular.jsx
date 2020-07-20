@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 function Popular(props) {
   return (
@@ -10,6 +10,10 @@ function Popular(props) {
   )
 }
 
-// Popular.propTypes = {}
+Popular.propTypes = {
+  props: PropTypes.objectOf({
+    children: PropTypes.node.isRequired,
+  }),
+}
 
 export default Popular
