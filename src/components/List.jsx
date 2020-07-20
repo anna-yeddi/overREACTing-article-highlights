@@ -2,16 +2,21 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import Video from './Video'
 import Article from './Article'
+import withHighlight from './withHighlight'
 
 function List(props) {
+  const HighlightedComponentVideo = withHighlight(Video)
+  const HighlightedComponentArticle = withHighlight(Article)
+
   return props.list.map((item, i) => {
     switch (item.type) {
       case 'video':
-        return <Video {...item} key={i} />
+        return <HighlightedComponentVideo {...item} key={i} />
 
       case 'article':
-        return <Article {...item} key={i} />
+        return <HighlightedComponentArticle {...item} key={i} />
     }
+    // return <HighlightedComponent {...item} key={i} />
   })
 }
 
