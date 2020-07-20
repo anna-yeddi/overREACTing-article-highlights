@@ -1,61 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
+import List from './components/List'
 
 export default function App() {
-  function New(props) {
-    return (
-      <div className="wrap-item wrap-item-new">
-        <span className="label">New!</span>
-        {props.children}
-      </div>
-    )
-  }
-
-  function Popular(props) {
-    return (
-      <div className="wrap-item wrap-item-popular">
-        <span className="label">Popular!</span>
-        {props.children}
-      </div>
-    )
-  }
-
-  function Article(props) {
-    return (
-      <div className="item item-article">
-        <h3>
-          <a href="#">{props.title}</a>
-        </h3>
-        <p className="views">Прочтений: {props.views}</p>
-      </div>
-    )
-  }
-
-  function Video(props) {
-    return (
-      <div className="item item-video">
-        <iframe
-          src={props.url}
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen></iframe>
-        <p className="views">Просмотров: {props.views}</p>
-      </div>
-    )
-  }
-
-  function List(props) {
-    return props.list.map((item) => {
-      switch (item.type) {
-        case 'video':
-          return <Video {...item} />
-
-        case 'article':
-          return <Article {...item} />
-      }
-    })
-  }
-
   // ToDo: Update  URLs to YouTube API to be able to fetch title data
   // for iframe elements and their a11y
   const [list, setList] = useState([
@@ -95,5 +42,12 @@ export default function App() {
     },
   ])
 
-  return <List list={list} />
+  return (
+    <div>
+      <h1>Highlighted Article Collection</h1>
+      <div id="root-articles">
+        <List list={list} />
+      </div>
+    </div>
+  )
 }
